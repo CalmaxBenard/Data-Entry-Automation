@@ -30,18 +30,26 @@ response = requests.get(URL, headers=headers)
 website_html = response.text
 
 soup = BeautifulSoup(website_html, "html.parser")
+
+# Get address of the property
 addresses = soup.find_all("a", class_="property-card-link")
+
+# Get the price of the properties
 prices = soup.find_all("span", class_="iMKTKr")
 
+# Form a list of all the prices
 rents = [rent.text for rent in prices]
+
+# List of the property addresses
 property_addresses = [address.text for address in addresses if address.text != ""]
 
+# A list of all the properties in the right format to allow client visit the url
 property_links = ["https://www.zillow.com" + link.get("href") for link in addresses]
 
-
+# Open the Google form in your Google sheet
 driver.get(Form_Url)
 
-
+# Fill out the form for every property
 for i in range(len(rents)):
     sleep(2)
     property_rent = driver.find_element(By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div['
@@ -59,6 +67,6 @@ for i in range(len(rents)):
 
     driver.find_element(By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div[1]/div').click()
     sleep(3)
-    driver.find_element(By.XPATH, '/html/body/div[1]/div[2]/div[1]/div/div[4]/a').click()
+    driver.get(Form_Url)
 
 driver.quit()
