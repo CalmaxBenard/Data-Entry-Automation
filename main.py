@@ -19,8 +19,7 @@ URL = ("https://www.zillow.com/asheville-nc/rentals/?searchQueryState=%7B%22pagi
        "%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A11%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A50779%2C"
        "%22regionType%22%3A6%7D%5D%2C%22usersSearchTerm%22%3A%22%22%7D")
 #
-Form_Url = ("https://docs.google.com/forms/d/e/1FAIpQLScwyecYrntygUDGCuySWAmKn5W3JWdeUAgJHbURdnBK0Eof3g/viewform?usp"
-            "=sf_link")
+Form_Url = "your googlesheets url"
 headers = {
     "Accept-Language": "en-US,en;q=0.9,nl;q=0.8",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
